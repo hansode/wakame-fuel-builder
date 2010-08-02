@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Ubuntu-10.04 LSD
+# Ubuntu-10.04 LTS
 #
 
 export LANG=C
@@ -39,6 +39,12 @@ su - wakame -c "
 [ -d /home/wakame/wakame.proj ] || {
   su - wakame -c "
     /home/wakame/.gem/ruby/1.8/bin/wakame /home/wakame/wakame.proj
+  "
+}
+
+[ -d /home/wakame/wakame.proj/tmp/config ] || {
+  su - wakame -c "
+    /home/wakame/.gem/ruby/1.8/bin/wakame /home/wakame/wakame.proj/tmp/config
   "
 }
 

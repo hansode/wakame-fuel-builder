@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Ubuntu-10.04 LSD
+# Ubuntu-10.04 LTS
 #
 # ELB -> nginx -> spawn-fcgi -> fcgiwrap
 
