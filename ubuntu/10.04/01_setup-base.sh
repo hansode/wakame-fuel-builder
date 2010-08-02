@@ -44,7 +44,7 @@ su - wakame -c "
 
 [ -d /home/wakame/wakame.proj/tmp/config ] || {
   su - wakame -c "
-    /home/wakame/.gem/ruby/1.8/bin/wakame /home/wakame/wakame.proj/tmp/config
+    mkdir /home/wakame/wakame.proj/tmp/config
   "
 }
 
@@ -87,4 +87,13 @@ EOS
 [ -x /etc/init.d/apparmor ] && {
   /etc/init.d/apparmor stop
   /usr/sbin/update-rc.d -f apparmor remove
+}
+
+# disable apparmor
+[ -x /etc/init.d/rabbitmq-server ] && {
+  /etc/init.d/rabbitmq-server stop
+  /usr/sbin/update-rc.d -f rabbitmq-server remove
+}
+[ -d /var/lib/rabbitmq/mnesia ] && {
+  rm -rf /var/lib/rabbitmq/mnesia
 }
